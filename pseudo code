@@ -1,0 +1,10 @@
+Make a game of rock paper scissors
+
+take a user input of rock, paper, or scissors
+generate a move by the computer rps
+
+compare the moves and declare a winner
+
+optional: 
+keep a score count
+best of 3,5,7
