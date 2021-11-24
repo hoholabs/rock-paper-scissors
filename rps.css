@@ -1,0 +1,28 @@
+:root {
+  background-color: #ecdacd;
+}
+
+#resultsDisplay {
+  border: solid black 2px;
+  text-align: center;
+  width: 75vw;
+  margin: auto;
+  background-color: #e6a77b;
+}
+
+#scoreDisplay {
+  border: solid black 2px;
+  text-align: center;
+  width: 75vw;
+  margin: auto;
+  background-color: #e6a77b;
+}
+
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+/*# sourceMappingURL=rps.css.map */

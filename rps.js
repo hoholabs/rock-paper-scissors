@@ -1,24 +1,14 @@
 
-function game(){
-
+function game(usrPick){
+    /*
     function userPick(){//User picks
 
         let userPickString = prompt("Best of 5: rock, paper, or scissors?").toLowerCase();
-        /* To check if player picks rock, paper, or scissors
-        DOES NOT WORK
-        if (userPickString === "rock" || userPickString === "paper" || userPickString ==="scissors"){
-            console.log(userPickString);
-            return userPickString;
-        }
-        else{
-            console.log("wrong answer");
-            userPick();
-        }
-        */
+
         return userPickString;
         //console.log(userPickString);
     }
-
+    */
     function computerPick(){ //computer chooses rock paper or scissors
         computerPickNumber = Math.floor((Math.random()*100)/33.3);
         if(computerPickNumber===0){
@@ -31,11 +21,10 @@ function game(){
             return "scissors";
         }
     }
-    //console.log(computerPlay());
-    let userPlay= userPick();
-    //console.log(userPlay+"-user")
+    let userPlay= usrPick;
+    console.log(userPlay+"-user")
     let computerPlay=computerPick();
-    //console.log(computerPlay+"-computer");
+    console.log(computerPlay+"-computer");
 
     if(userPlay===computerPlay){//declare a tie
         //console.log("TIE!")
@@ -79,27 +68,44 @@ function game(){
 //console.log(play()[1])
 let wins=0;
 let losses=0;
+let round=1;
 
-for(let round=1; wins<3 && losses<3; round++){
+const resultsDisplay = document.querySelector('#resultsDisplay');
+const scoreDisplay = document.querySelector('#scoreDisplay');
 
-    results= game();
-    console.log(`You ${results[0]}`);
+//for(let round=1; wins<3 && losses<3; round++){
+function playGame(pick){
+    results= game(pick);
+    //console.log(`You ${results[0]}`);
     
     if (results[0]==="win"){
-        console.log(`${results[1]} beats ${results[2]}`)
+        resultsDisplay.textContent=`You ${results[0]}, ${results[1]} beats ${results[2]}`
         wins++
     }
     else if (results[0]==="lose"){
-        console.log(`${results[2]} beats ${results[1]}`)
+        resultsDisplay.textContent=`You ${results[0]}, ${results[2]} beats ${results[1]}`
         losses++
     }
-    console.log(`round ${round} | wins:${wins} losses:${losses}`)
-}
+    else if (results[0]==="tie"){
+        resultsDisplay.textContent="You tied!"
+    }
+    scoreDisplay.textContent=`round ${round} | wins:${wins} losses:${losses}`
+    round++
 
-if(wins>losses){
-    console.log(`You win ${wins} to ${losses}`)
+    if(wins+losses==5 && wins>losses){
+        alert(`You win ${wins} to ${losses}`);
+        wins=0;
+        losses=0;
+        round=1;
+        scoreDisplay.textContent= "Round 1 | Fight!"
+        resultsDisplay.textContent="Rock, Paper, Scissors, Shoot!"
+    }
+    if(wins+losses==5 && wins<losses){
+        alert(`You lose ${losses} to ${wins}`);
+        wins=0;
+        losses=0;
+        round=1;
+        scoreDisplay.textContent= "Round 1 | Fight!"
+        resultsDisplay.textContent="Rock, Paper, Scissors, Shoot!"
+    }
 }
-else{
-    console.log(`you lose ${losses} to ${wins}`)
-}
-

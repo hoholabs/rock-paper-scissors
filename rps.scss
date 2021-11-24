@@ -1,0 +1,26 @@
+:root{
+    background-color: #ecdacd;
+}
+
+#resultsDisplay{
+    border: solid black 2px;
+    text-align: center;
+    width: 75vw;
+    margin:auto;
+    background-color:#e6a77b;
+
+}
+
+#scoreDisplay{
+    border: solid black 2px;
+    text-align: center;
+    width: 75vw;
+    margin:auto;
+    background-color:#e6a77b;
+}
+
+.buttons{
+    display:flex;
+    justify-content: space-around;
+    
+}
